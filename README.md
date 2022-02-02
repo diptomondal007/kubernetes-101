@@ -47,14 +47,14 @@ Noice! Now you are running a k8s cluster in your windows now we want to access t
         server: https://{{your windows machine's local network's ip address}}:18443
         name: minikube-remote
     ```
-   - Add an item for ```contexts```
+  - Add an item for ```contexts```
     ```yaml
     - context:
         cluster: minikube-remote
         user: minikube
       name: minikube-remote
     ```
-   - Last one. Add a user under ```users```
+ - Last one. Add a user under ```users```
     ```yaml
     - name: minikube
       user:
