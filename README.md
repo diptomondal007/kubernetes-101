@@ -25,3 +25,39 @@ What I am doing is I am running a kubernetes cluster with minikube in my windows
   - Install & start minikube on your windows machine. Assuming you have docker installed on your computer. If not, no worries. It's not rocket science to install docker.
   - Install kubectl tool.
   - Check if everything is alright by hitting this command ```kubectl get pod```
+Noice! Now you are running a k8s cluster in your windows now we want to access that cluster from another computer in same network. Let's do that-
+  #### Accessing remotely
+  - First we need to run proxy to expose minikube on local network. Run ```docker run chevdor/nginx-minikube-proxy:latest -p 18443:18443```. This will run a pod in docker. Next time make sure this pod is running to access the minikube from another machine.
+  - Now let's copy 3 files from your windows machine to your mac. Go to your **C** partition. Then Users>{{your user}}>>.minikube
+      - client.crt (if you can't find go to profiles/minikube)
+      - client.key (if you can't find go to profiles/minikube)
+      - ca.crt
+  #### Assuming you are on your mac now.
+  - Now convert all the 3 files to their base64 version and note them on a text editor
+  - If you don't know how to convert a file to base64. I am here.
+      - ```cat filename```
+      - ```echo "{{output from cat command}}" | grep base64```
+  - Goto ```cd ~/.kube```
+  - Backup the kube config by ```cp config config.backup```
+  - Now we need to edit the cofig file. Open the config file in your favorite editor.
+  - Add an item for ```clusters```
+    ```yaml
+    - cluster:
+        certificate-authority-data: {{Put the base64 encoded ca.crt}}
+        server: https://{{your windows machine's local network's ip address}}:18443
+        name: minikube-remote
+    ```
+   - Add an item for ```contexts```
+    ```yaml
+    - context:
+        cluster: minikube-remote
+        user: minikube
+      name: minikube-remote
+    ```
+   - Last one. Add a user under ```users```
+    ```yaml
+    - name: minikube
+      user:
+        client-certificate-data: {{Put the base64 encoded client.crt}}
+        client-key-data: {{Put the base64 encoded client.key}}
+    ```
