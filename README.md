@@ -62,5 +62,5 @@ Noice! Now you are running a k8s cluster in your windows now we want to access t
         client-key-data: {{Put the base64 encoded client.key}}
     ```
  #### Let's test
-    - Run this command to switch the k8s context ```kubectl config use-context minikube-remote```
-    - Now Run ```kubectl get pod``` and if you see expected command congrats! you are connected to a remote cluster.
+   - Run this command to switch the k8s context ```kubectl config use-context minikube-remote```
+   - Now Run ```kubectl get pod``` and if you see expected command congrats! you are connected to a remote cluster.
