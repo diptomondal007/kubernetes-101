@@ -63,4 +63,4 @@ Noice! Now you are running a k8s cluster in your windows now we want to access t
     ```
  #### Let's test
    - Run this command to switch the k8s context ```kubectl config use-context minikube-remote```
-   - Now Run ```kubectl get pod``` and if you see expected command congrats! you are connected to a remote cluster.
+   - Now Run ```kubectl get pod``` and if you see expected output congrats! you are connected to a remote cluster.
