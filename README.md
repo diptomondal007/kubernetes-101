@@ -28,7 +28,7 @@ What I am doing is I am running a kubernetes cluster with minikube in my windows
 Noice! Now you are running a k8s cluster in your windows now we want to access that cluster from another computer in same network. Let's do that-
   #### Accessing remotely:
   - First we need to run proxy to expose minikube on local network. Run ```docker run chevdor/nginx-minikube-proxy:latest -p 18443:18443```. This will run a pod in docker. Next time make sure this pod is running to access the minikube from another machine.
-  - Now let's copy 3 files from your windows machine to your mac. Go to your **C** partition. Then Users>{{your user}}>>.minikube
+  - Now let's copy 3 files from your windows machine to your mac. Go to your **C** partition. Then ```Users>{{your user}}>>.minikube```
       - client.crt (if you can't find go to profiles/minikube)
       - client.key (if you can't find go to profiles/minikube)
       - ca.crt
