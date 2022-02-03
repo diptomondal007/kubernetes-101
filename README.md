@@ -11,7 +11,7 @@ The processes are simple. Here I am giving the steps for MAC. You will find step
 
 #### We need one more thing to start working with kubernetes aka k8s:
   #### Kubectl:
-  - Install with ***Homebrew** - ```brew install kubectl```
+  - Install with **Homebrew** - ```brew install kubectl```
   - Test if kubernetes cluster is running - ```kubectl get pod```
   - Output Should be ```No resources found in default namespace.```
 
