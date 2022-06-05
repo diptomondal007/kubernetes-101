@@ -1,5 +1,7 @@
 # kubernetes-101
 
+<img src="https://www.pngkey.com/png/detail/246-2467736_the-leading-product-in-this-space-is-kubernetes.png">
+
 ## Installation:
 
 #### Running a kubernetes Cluster:
